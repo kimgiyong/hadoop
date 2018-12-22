@@ -22,8 +22,10 @@ public class HadoopConnection {
 				FileSystem fs = FileSystem.get(config);
 
 				Path upFileName = new Path("word.txt");
+				Path logFileName = new Path("word.log");
 				if (fs.exists(upFileName)) {
 					fs.delete(upFileName, true);
+					fs.delete(logFileName, true);
 				}
 				FSDataOutputStream fsdo = fs.create(upFileName);
 				fsdo.writeUTF("hi hi hi hey hey lol start hi");
